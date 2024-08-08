@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+
+    <div class="container">
+        <h1>Edit Book</h1>
+        <form action="/books/<%= book._id %>?_method=PUT" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" value="<%= book.title %>" />
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" name="description" value="<%= book.description %>" />
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" name="author" value="<%= book.author %>" />
+            </div>
+            <div class="mb-3">
+                <label for="genre" class="form-label">Genre</label>
+                <select class="form-control" name="genre" id="genre">
+                    <option disabled>-- Choose Below --</option>
+                    <option <%=book.genre==="Action" ? "selected" : "" %>>Action</option>
+                    <option <%=book.genre==="Sci-fi" ? "selected" : "" %>>Sci-fi</option>
+                    <option <%=book.genre==="Historical Fiction" ? "selected" : "" %>>Historical Fiction</option>
+                    <option <%=book.genre==="Fantasy" ? "selected" : "" %>>Fantasy</option>
+                    <option <%=book.genre==="Horror" ? "selected" : "" %>>Horror</option>
+                    <option <%=book.genre==="Thriller" ? "selected" : "" %>>Thriller</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" name="date" value="<%= book?.date?.toISOString().split(" T")[0]
+                    %>"
+                />
+            </div>
+            <div class="mb-3">
+                <input type="checkbox" class="form-check=input" name="standAlone" <%=book.standAlone ? "checked" : "" %>
+                />
+                <label for="standAlone" class="form-label">Stand-alone?</label>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Link to image</label>
+                <input type="text" class="form-control" name="image" value="<%= book.image %>" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <%- include("partials/footer") %>

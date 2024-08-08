@@ -1,0 +1,73 @@
+<%- include("partials/header") %>
+
+<div class="container">
+  <h1>Add New Book</h1>
+  <form action="/books" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        placeholder="e.g. Harry Potter and the Sorcerer's Stone"
+        autofocus
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        name="author"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="genre" class="form-label">Genre</label>
+      <select class="form-control" name="genre" id="genre">
+        <option disabled selected>-- Choose Below --</option>
+        <option>Action</option>
+        <option>Sci-fi</option>
+        <option>Historical Fiction</option>
+        <option>Fantasy</option>
+        <option>Horror</option>
+        <option>Thriller</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name="date"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+      type="checkbox"
+      class="form-check=input"
+      name="standAlone"
+      />
+      <label for="standAlone" class="form-label">Stand-alone?</label>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Link to image</label>
+        <input
+          type="text"
+          class="form-control"
+          name="image"
+          placeholder="https://www.myimage.com"
+        />
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<%- include("partials/footer") %>

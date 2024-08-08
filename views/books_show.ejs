@@ -1,0 +1,66 @@
+<%- include("partials/header") %>
+
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-6 show_image-container">
+        <img src="<%= book.image %>" class="img-fluid">
+      </div>
+      <div class="col-6 show_details-container">
+        <h1>
+          <%= book.title %>
+        </h1>
+        <p>
+          <%= book.description %>
+        </p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">Author</th>
+              <td>
+                <%= book.author %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Genre</th>
+              <td>
+                <%= book.genre %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Date</th>
+              <td>
+                <%= book.date %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Stand Alone?</th>
+              <td>
+                <%= book.standAlone %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="/books/<%= book._id %>/edit">
+          <button class="btn btn-outline-info btn-lg btn-block mb-2">Edit</button>
+        </a>
+        <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-outline-danger btn-lg btn-block">Delete</button>
+        </form>
+      </div>
+    </div>
+    <div class="row show_comment-header mt-3">
+      COMMENT HEADER
+    </div>
+    <% comments.forEach((comment => { %>
+      <div class="row show_comment-container py-2">
+        <div class="col-3">
+          <%= comment.user %>
+        </div>
+        <div class="col-9">
+          <%= comment.text %>
+        </div>
+      </div>
+      <% })) %>
+  </div>
+
+  <%- include("partials/footer") %>
